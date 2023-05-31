@@ -128,5 +128,36 @@ public class ListaSensorCrescente {
 	public boolean isEmpty() {
 		return lista == null;
 	}
+	public int getLength() {
+		NO aux = lista;
+		int count =0;
+		while (aux != null) {
+			count++;
+			aux = aux.prox;
+		}
+		return count;
+	}
+	
+	public int[] verificaSensores() {
+		NO aux = lista;
+		int[] indexs = new int[getLength()];
+		int count =0;
+		int i= 0;
+		while (aux != null) {
+			if(!(aux.sensor.getPh() >5.5) && !(aux.sensor.getPh() < 6.5)) 
+				count++;
+			if(!(aux.sensor.getUmidade()> 19) && !(aux.sensor.getUmidade() <61))
+				count++;
+			if(aux.sensor.getTeorMOS() > 60)
+				count++;
+			if(count>=2) {
+				indexs[i] = aux.sensor.getIndex();
+				i++;
+			}
+			aux = aux.prox;
+		}
+		return indexs;
+	}
+	
 	
 }

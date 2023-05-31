@@ -2,6 +2,7 @@ package filas;
 
 import entidades.Sensor;
 
+
 public class FilaSensor {
 	
 	private class NO {
@@ -37,5 +38,32 @@ public class FilaSensor {
 	}
 	public String first() {
 		return (inicio.sensor.toString());
+	}
+	
+	public void apresenta() {
+		NO aux = inicio;
+		System.out.println("\n *** FILA ***");
+		while (aux != null) {
+			System.out.println("\t " + aux.sensor.toString());
+			aux = aux.prox;
+		}
+	}
+	public boolean achaSensor(int valor) {
+		boolean achou = false;
+		if (inicio != null) {
+			if (valor == inicio.sensor.getIndex()) {
+				achou = true;
+			} else {
+				NO aux = inicio;
+				while (aux.prox != null && !achou) {
+					if (aux.prox.sensor.getIndex() != valor)
+						aux = aux.prox;
+					else {
+						achou = true;
+					}
+				}
+			}
+		}
+		return achou;
 	}
 }
