@@ -1,5 +1,54 @@
 Usar esse arquivo para:
 
-	1) Identificar os membros do grupo
-	
-	2) Apresentar a descri��o do projeto desenvolvido
+      1) Identificar os membros do grupo
+      Erik Giuseppe Kato Bandeira Rm 92988
+      João Tancredi Dela Rocca Rm 93527
+      Rafael Ioshi Imamura Pereira Rm 93102
+
+      2) Apresentar a descri  o do projeto desenvolvido
+      No projeto as medidas obitidades pelos sensores são:
+      Index: 1 -> Identificação do Sensor
+      Coordenada: 47o55'44"W,21o00'34"S -> Posição do sensor
+      Umidade: 20 a 70 -> Porcentagem de umidade no solo
+      Ph: 4 a 8 -> Ph do solo
+      Teor MOS: 0 a 70 -> Quantidade de matéria orgânica dentro do solo.
+      Textura do Solo: arenoso, médio, argiloso, má drenagem ou acidez alta -> Textura do solo de acordo
+      com a quantidade de MOS.
+
+      * Divisão da Textura do Solo:
+            arenoso -> 0 a 15
+            médio -> 15 a 31
+            argiloso -> 31 a 60
+            má drenagem ou acidez alta -> 60 para cima
+
+      *OBS: a textura do solo é adicionada conforme o que é inserido no teor MOS.
+     
+	  Alerta do Sistema:
+      Para emitir o alerta é preciso que duas medidas dos sensores estejam fora do ideal, nesse caso os
+      únicos que tem essa divisão são:
+      Umidade:para emitir o alerta, é preciso ter a umidade abaixo de 20 e acima de 60
+      PH:   para emitir o alerta, é preciso ter o ph abaixo 5.5 e acima de 6.5
+      Teor MOS: para emitir o alerta, é preciso ter o teor acima de 60
+      
+ 	  O resto não tem ideal ou derivam de outras medidas.
+      
+	  Explicando o teor MOS:
+      O teor MOS ele é indicativo do estado do solo, como cada planta precisa no caso que solo esteja de um jeito
+      não há como dizer se o solo é ruim ou não, porém existe o solo com má drenagem ou acidez alta que é o único não
+      indicado para maioria das plantas, portanto ele emite alerta.
+      Além disso, devido ao teor achamos legal você poder visualizar o tipo de solo que aquele sensor está, para isso
+      foi usado a textura.
+
+      Referencias:
+      Divisão do Ph: https://brfertil.com.br/a-influencia-do-ph-do-solo-sobre-a-agricultura/#:~:text=Qual%20a%20relação%20do%20pH,da%20maior%20parte%20das%20plantas.
+      No começo da página segundo subtitulo estará este trecho:
+      O pH do solo governa diretamente as reações do solo e, de maneira geral, valores de pH entre 5,5 a 6,5 são favoráveis ao desenvolvimento da maior parte das plantas.
+      Divisão da Umidade: https://eos.com/pt/blog/umidade-do-solo/#:~:text=A%20gama%20ideal%20de%20teor,entre%2020%25%20e%2060%25.
+      No começo da página abaixo de uma imagem estará este trecho:
+      A gama ideal de teor de umidade do solo para as culturas depende das espécies vegetais específicas, mas a faixa para a maioria das culturas está entre 20% e 60%.
+      Divisão do Teor: https://www.iac.sp.gov.br/produtoseservicos/analisedosolo/interpretacaoanalise.php#:~:text=O%20teor%20de%20matéria%20orgânica%20é%20útil%20para%20dar%20idéia,g%2Fdm3%20para%20solos%20argilosos.
+      No final da página este trecho:
+      O teor de matéria orgânica serve para dar ideia da textura do solo, com valores até de 15 g/dm3 para solos arenosos, entre 16 e 30 g/dm3 para solos de textura média e de 31 a 60 g/dm3 para solos argilosos.
+
+
+  
