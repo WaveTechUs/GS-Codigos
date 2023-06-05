@@ -100,7 +100,13 @@ public class Monitora {
 			System.out.println("8- Sair");
 			System.out.println("=====================================");
 			System.out.println("Escolha um numero: ");
-			escolha = le.nextInt();	
+            try {
+                escolha = le.nextInt();
+            } catch (Exception e) {
+                System.out.println("Você não digitou um número! Tente novamente!");
+                le.next(); 
+                escolha = 9;
+            }
 			if(escolha > 1 && escolha < 8 && !listaVazia) {
 				break;
 			}
@@ -183,11 +189,16 @@ public class Monitora {
 		int umidade = 0;
 		while(true) {
 			System.out.println("Digite a Umidade:");
-			umidade = le.nextInt();
+            try {
+                umidade = le.nextInt();
+            } catch (Exception e) {
+                System.out.println("Você não digitou um número! Tente novamente!");
+                le.next(); 
+                umidade = 0;
+            }
 			if(umidade > (UMIDADE_MIN-1) && umidade < (UMIDADE_MAX+1))
 				break;
 			else {
-				System.out.println("Você digitou errado a umidade ");
 				System.out.println("A umidade precisa estar nesse intervalo: " + UMIDADE_MIN + " a " + UMIDADE_MAX);
 			}
 				
@@ -199,11 +210,16 @@ public class Monitora {
 		float ph = 0;
 		while(true) {
 			System.out.println("Digite o Ph:");
-			ph = le.nextFloat();
+            try {
+                ph = le.nextFloat();
+            } catch (Exception e) {
+                System.out.println("Você não digitou um número! Tente novamente!");
+                le.next(); 
+                ph = 0;
+            }
 			if(ph > (PH_MIN-1) && ph < (PH_MAX+1))
 				break;
 			else {
-				System.out.println("Você digitou errado o ph");
 				System.out.println("O ph precisa estar nesse intervalo: " + PH_MIN + " a " + PH_MAX);
 			}
 				
@@ -215,11 +231,16 @@ public class Monitora {
 		float teorMOS = 0;
 		while(true) {
 			System.out.println("Digite o teor MOS:");
-			teorMOS = le.nextFloat();
+            try {
+                teorMOS = le.nextFloat();
+            } catch (Exception e) {
+                System.out.println("Você não digitou um número! Tente novamente!");
+                le.next(); 
+                teorMOS = 0;
+            }
 			if(teorMOS > (TEORMOS_MIN-1) && teorMOS < (TEORMOS_MAX+1))
 				break;
 			else {
-				System.out.println("Você digitou errado o teor");
 				System.out.println("O teor precisa estar nesse intervalo: " + TEORMOS_MIN + " a " + TEORMOS_MAX);
 			}
 				
