@@ -92,9 +92,9 @@ public class Monitora {
 			System.out.println("2- Gerar Sensores");
 			if(!listaVazia) {
 				System.out.println("3- Verificar dados dos Sensores");
-				System.out.println("4- Aprenseta Sensor");
-				System.out.println("5- Apresenta Lista");
-				System.out.println("6- Aprenseta Fila");
+				System.out.println("4- Apresentar Sensor");
+				System.out.println("5- Apresentar Lista");
+				System.out.println("6- Aprensetar Fila");
 				System.out.println("7- Remover");
 			}
 			System.out.println("8- Sair");
