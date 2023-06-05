@@ -24,7 +24,7 @@ public class Monitora {
 		do {
 			int escolha = menu();
 			continua = acao(escolha);
-			if(escolha !=3 && escolha !=6)
+			if(escolha !=3 && escolha !=8)
 				verificaSensores();
 			
 		}while(continua);
@@ -83,30 +83,40 @@ public class Monitora {
 		return result;
 	}
 	
-	public int menu() {
-		boolean listaVazia = listaSensor.isEmpty();
-		int escolha;
-		do {
-			System.out.println("=====================================");
-			System.out.println("1- Adicionar na Sensor");
-			System.out.println("2- Gerar Sensores");
-			if(!listaVazia) {
-				System.out.println("3- Verificar dados dos Sensores");
-				System.out.println("4- Aprenseta Sensor");
-				System.out.println("5- Apresenta Lista");
-				System.out.println("6- Aprenseta Fila");
-				System.out.println("7- Remover");
-			}
-			System.out.println("8- Sair");
-			System.out.println("=====================================");
-			System.out.println("Escolha um numero: ");
-			escolha = le.nextInt();	
-			if(escolha > 1 && escolha < 8 && !listaVazia) {
-				break;
-			}
-		}while(escolha != 1 && escolha != 8 && escolha !=2 );
-		return escolha;
-	}
+	 public int menu() {
+	        boolean listaVazia = listaSensor.isEmpty();
+	        int escolha = 0; // Adicione uma atribuição inicial para evitar o loop infinito
+	        
+	        do {
+	            System.out.println("=====================================");
+	            System.out.println("1- Adicionar na Sensor");
+	            System.out.println("2- Gerar Sensores");
+	            if (!listaVazia) {
+	                System.out.println("3- Verificar dados dos Sensores");
+	                System.out.println("4- Aprenseta Sensor");
+	                System.out.println("5- Apresenta Lista");
+	                System.out.println("6- Aprenseta Fila");
+	                System.out.println("7- Remover");
+	            }
+	            System.out.println("8- Sair");
+	            System.out.println("=====================================");
+	            System.out.println("Escolha um número: ");
+	            
+	            try {
+	                escolha = le.nextInt();
+	            } catch (Exception e) {
+	                System.out.println("Você não digitou um número! Tente novamente!");
+	                le.next();
+	                escolha = 9;
+	            }
+	            
+	            if (escolha > 1 && escolha < 8 && !listaVazia) {
+	                break;
+	            }
+	        } while (escolha != 1 && escolha != 8 && escolha != 2);
+	        
+	        return escolha;
+	    }
 	
 	public boolean acao(int escolha) {
 		boolean continua = true;
@@ -183,7 +193,12 @@ public class Monitora {
 		int umidade = 0;
 		while(true) {
 			System.out.println("Digite a Umidade:");
-			umidade = le.nextInt();
+            try {
+            	umidade = le.nextInt();
+            } catch (Exception e) {
+                le.next();
+                umidade = 0;
+            }
 			if(umidade > (UMIDADE_MIN-1) && umidade < (UMIDADE_MAX+1))
 				break;
 			else {
@@ -199,7 +214,12 @@ public class Monitora {
 		float ph = 0;
 		while(true) {
 			System.out.println("Digite o Ph:");
-			ph = le.nextFloat();
+            try {
+            	ph = le.nextFloat();
+            } catch (Exception e) {
+                le.next();
+                ph = 0;
+            }
 			if(ph > (PH_MIN-1) && ph < (PH_MAX+1))
 				break;
 			else {
@@ -215,7 +235,13 @@ public class Monitora {
 		float teorMOS = 0;
 		while(true) {
 			System.out.println("Digite o teor MOS:");
-			teorMOS = le.nextFloat();
+			System.out.println("Digite o Ph:");
+            try {
+            	teorMOS = le.nextFloat();
+            } catch (Exception e) {
+                le.next();
+                teorMOS = 0;
+            }
 			if(teorMOS > (TEORMOS_MIN-1) && teorMOS < (TEORMOS_MAX+1))
 				break;
 			else {
